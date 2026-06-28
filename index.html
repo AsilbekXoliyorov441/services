@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Электромонтаж</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-[#111] text-white">
+    <header
+      id="mainHeader"
+      class="sticky top-0 left-0 w-full z-50 bg-[#121214]/80 backdrop-blur-md border-b border-gray-800/60 transition-all duration-300"
+    >
+      <div
+        class="max-w-[1280px] mx-auto px-4 sm:px-6 py-4 flex items-center justify-between"
+      >
+        <a href="./index.html" class="flex items-center gap-2 group">
+          <img
+            src="./images/83ae365ccca74ee2126bb0dc61fa57b7e5dad7cd (1).png"
+            class="w-full max-w-[120px] sm:max-w-[140px] h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            alt="РСЗМ Logo"
+          />
+          <span
+            id="logoText"
+            class="text-lg sm:text-xl font-black tracking-wider text-white border-l border-gray-700 pl-3 hidden md:inline group-hover:text-amber-400 transition-colors"
+          >
+            РСЗМ
+          </span>
+        </a>
+
+        <nav id="desktopNav" class="hidden lg:flex items-center gap-6 xl:gap-8">
+          <a
+            href="./index.html"
+            class="text-sm font-medium tracking-wide text-gray-300 hover:text-amber-400 transition-colors duration-200"
+            >О компании</a
+          >
+          <a
+            href="./Услуги.html"
+            class="text-sm font-medium tracking-wide text-gray-300 hover:text-amber-400 transition-colors duration-200"
+            >Услуги</a
+          >
+          <a
+            href="./Направления.html"
+            class="text-sm font-medium tracking-wide text-gray-300 hover:text-amber-400 transition-colors duration-200"
+            >Направления</a
+          >
+          <a
+            href="./Готовыерешения.html"
+            class="text-sm font-medium tracking-wide text-gray-300 hover:text-amber-400 transition-colors duration-200"
+            >Готовые решения</a
+          >
+          <a
+            href="./Проекты.html"
+            class="text-sm font-medium tracking-wide text-gray-300 hover:text-amber-400 transition-colors duration-200"
+            >Проекты</a
+          >
+          <a
+            href="./Контакты.html"
+            class="text-sm font-medium tracking-wide text-gray-300 hover:text-amber-400 transition-colors duration-200"
+            >Контакты</a
+          >
+        </nav>
+
+        <div class="flex items-center gap-3 sm:gap-4">
+          <div
+            id="themeSwitcher"
+            class="p-1 flex items-center gap-1 bg-gray-900 border border-gray-800 rounded-xl relative select-none transition-all duration-300"
+          >
+            <button
+              id="setLightBtn"
+              type="button"
+              class="p-2 rounded-lg text-gray-500 hover:text-amber-400 transition-all flex items-center justify-center"
+              title="Дневной режим"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"
+                />
+              </svg>
+            </button>
+
+            <button
+              id="setDarkBtn"
+              type="button"
+              class="p-2 rounded-lg bg-gray-800 text-indigo-400 transition-all flex items-center justify-center"
+              title="Ночной режим"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="hidden sm:block text-right">
+            <a
+              id="phoneLink"
+              href="tel:+74959998877"
+              class="text-sm md:text-base font-bold tracking-tight text-white hover:text-amber-400 transition-colors block"
+            >
+              +7 (495) 999 88 77
+            </a>
+            <span class="text-[10px] text-gray-500 font-medium block mt-0.5"
+              >пн-пт с 9.00 до 19.00</span
+            >
+          </div>
+
+          <button
+            id="burgerBtn"
+            type="button"
+            class="lg:hidden inline-flex items-center justify-center p-2.5 rounded-xl bg-gray-900 border border-gray-800 text-white hover:bg-gray-800 focus:outline-none transition-colors"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <script>
+      // 1. Elementlarni tanlab olamiz
+      const setLightBtn = document.getElementById("setLightBtn");
+      const setDarkBtn = document.getElementById("setDarkBtn");
+      const burgerBtn = document.getElementById("burgerBtn");
+      const closeMenuBtn = document.getElementById("closeMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuLinks = mobileMenu ? mobileMenu.querySelectorAll("a") : [];
+
+      // 2. Mobil menyu ochish/yopish logikasi (Skrollni muzlatish bilan)
+      if (burgerBtn && mobileMenu && closeMenuBtn) {
+        burgerBtn.addEventListener("click", () => {
+          mobileMenu.classList.remove(
+            "invisible",
+            "opacity-0",
+            "pointer-events-none",
+          );
+          document.body.style.overflow = "hidden";
+        });
+
+        closeMenuBtn.addEventListener("click", () => {
+          mobileMenu.classList.add(
+            "invisible",
+            "opacity-0",
+            "pointer-events-none",
+          );
+          document.body.style.overflow = "";
+        });
+
+        menuLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add(
+              "invisible",
+              "opacity-0",
+              "pointer-events-none",
+            );
+            document.body.style.overflow = "";
+          });
+        });
+      }
+
+      // 3. Kun/Tun rejimida ranglarni OQ va QORA qilish
+      if (setLightBtn && setDarkBtn) {
+        // KUN REJIMI (Quyosh bosilganda to'liq OQ rang)
+        setLightBtn.addEventListener("click", () => {
+          // Sahifa fonini oq, matnni qora qilish
+          document.body.style.backgroundColor = "#ffffff";
+          document.body.style.color = "#000000";
+
+          // Agar sahifada boshqa section'lar bo'lsa, ularni ham oq qilish
+          document.querySelectorAll("section").forEach((sec) => {
+            sec.style.backgroundColor = "#ffffff";
+            sec.style.color = "#000000";
+          });
+
+          // Tugmalar vizual holati
+          setLightBtn.classList.add("bg-white", "text-amber-500");
+          setLightBtn.classList.remove("text-gray-500");
+          setDarkBtn.classList.remove("bg-gray-800", "text-indigo-400");
+          setDarkBtn.classList.add("text-gray-400");
+        });
+
+        // TUN REJIMI (Oy bosilganda to'liq QORA rang)
+        setDarkBtn.addEventListener("click", () => {
+          // Sahifa fonini qora, matnni oq qilish
+          document.body.style.backgroundColor = "#000000";
+          document.body.style.color = "#ffffff";
+
+          // Section'larni ham qora qilish
+          document.querySelectorAll("section").forEach((sec) => {
+            sec.style.backgroundColor = "#000000";
+            sec.style.color = "#ffffff";
+          });
+
+          // Tugmalar vizual holati
+          setDarkBtn.classList.add("bg-gray-800", "text-indigo-400");
+          setDarkBtn.classList.remove("text-gray-400");
+          setLightBtn.classList.remove("bg-white", "text-amber-500");
+          setLightBtn.classList.add("text-gray-500");
+        });
+      }
+    </script>
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center gap-6 text-xl font-bold invisible opacity-0 pointer-events-none transition-all duration-300"
+    >
+      <button
+        id="closeMenuBtn"
+        class="absolute top-5 right-5 w-12 h-12 flex items-center justify-center rounded-full bg-gray-900 border border-gray-800 text-white hover:text-amber-400 transition-colors"
+      >
+        &times;
+      </button>
+      <a
+        href="./index.html"
+        class="mobile-link text-gray-300 hover:text-amber-400 py-2 block transition-colors"
+        >О компании</a
+      >
+      <a
+        href="./Услуги.html"
+        class="mobile-link text-gray-300 hover:text-amber-400 py-2 block transition-colors"
+        >Услуги</a
+      >
+      <a
+        href="./Направления.html"
+        class="mobile-link text-gray-300 hover:text-amber-400 py-2 block transition-colors"
+        >Направления</a
+      >
+      <a
+        href="./Готовыерешения.html"
+        class="mobile-link text-gray-300 hover:text-amber-400 py-2 block transition-colors"
+        >Готовые решения</a
+      >
+      <a
+        href="./Проекты.html"
+        class="mobile-link text-gray-300 hover:text-amber-400 py-2 block transition-colors"
+        >Проекты</a
+      >
+      <a
+        href="./Контакты.html"
+        class="mobile-link text-gray-300 hover:text-amber-400 py-2 block transition-colors"
+        >Контакты</a
+      >
+      <a href="tel:+74959998877" class="text-amber-400 text-base mt-4 block"
+        >+7 (495) 999 88 77</a
+      >
+    </div>
+
+    <section
+      class="pt-[100px] pb-[60px] md:pt-[140px] md:pb-[90px] bg-slate-950 text-white overflow-hidden"
+    >
+      <div
+        class="max-w-[1200px] mx-auto px-4 flex flex-col lg:flex-row justify-between items-center gap-[40px] lg:gap-[50px]"
+      >
+        <div class="max-w-[500px] w-full text-center lg:text-left">
+          <h1
+            class="text-[32px] sm:text-[42px] lg:text-5xl font-bold leading-tight"
+          >
+            Профессиональный
+            <span class="text-[#F6C90E] block sm:inline">электромонтаж</span>
+          </h1>
+
+          <p class="text-gray-400 mt-[20px] text-[16px] sm:text-[18px]">
+            Монтаж, ремонт и обслуживание электрических систем любой сложности.
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mt-[30px]"
+          >
+            <button
+              class="bg-[#F6C90E] text-black px-[28px] py-[12px] font-bold rounded shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/20 active:scale-[0.98] transition-all"
+            >
+              Оставить заявку
+            </button>
+            <button
+              id="openInputModal"
+              class="border border-[#F6C90E] text-[#F6C90E] hover:bg-[#F6C90E] hover:text-black px-[28px] py-[12px] rounded active:scale-[0.98] transition-all"
+            >
+              Подробнее
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="w-full lg:max-w-[600px] h-[300px] sm:h-[400px] lg:h-[500px]"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0"
+            class="w-full h-full object-cover rounded-xl shadow-2xl"
+            alt="Электромонтаж"
+          />
+        </div>
+      </div>
+
+      <div
+        id="inputModal"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 transition-all duration-300"
+      >
+        <div
+          class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-gray-100 relative overflow-hidden transform transition-all m-2"
+        >
+          <div
+            class="flex items-center justify-between px-6 py-4 border-b border-gray-100"
+          >
+            <h2 class="text-xl font-semibold text-gray-800 tracking-tight">
+              Ma'lumot yuborish
+            </h2>
+            <button
+              id="closeModalX"
+              class="text-gray-400 hover:text-gray-600 p-1.5 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <form id="modalForm" class="p-6 space-y-5">
+            <div>
+              <label
+                class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1.5"
+                >Ismingiz</label
+              >
+              <input
+                type="text"
+                placeholder="Masalan: Asadbek"
+                class="w-full border border-gray-200 bg-gray-50 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#F6C90E] focus:bg-white focus:ring-4 focus:ring-[#F6C90E]/10 transition-all text-sm"
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1.5"
+                >Telefon raqam</label
+              >
+              <input
+                type="tel"
+                placeholder="+998 (__) ___-__-__"
+                class="w-full border border-gray-200 bg-gray-50 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#F6C90E] focus:bg-white focus:ring-4 focus:ring-[#F6C90E]/10 transition-all text-sm font-medium"
+                required
+              />
+            </div>
+
+            <div
+              class="flex items-center justify-end space-x-3 pt-3 border-t border-gray-100 mt-6"
+            >
+              <button
+                type="button"
+                id="closeInputModal"
+                class="px-5 py-2.5 rounded-xl text-sm font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+              >
+                Bekor qilish
+              </button>
+              <button
+                type="submit"
+                class="px-6 py-2.5 bg-[#F6C90E] hover:bg-[#e0b70d] text-gray-900 font-semibold rounded-xl text-sm shadow-md transition-all"
+              >
+                Yuborish
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-12 md:py-20 bg-slate-950 text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none"
+      ></div>
+
+      <div class="max-w-[1200px] mx-auto px-4 relative z-10">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
+        >
+          <div
+            class="group bg-slate-900/40 backdrop-blur-md border border-slate-800/80 p-6 md:p-8 rounded-2xl text-center transition-all duration-300 hover:border-[#F6C90E]/40 hover:shadow-[0_0_25px_rgba(246,201,14,0.1)] hover:-translate-y-1"
+          >
+            <h3
+              class="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#F6C90E] to-amber-400 bg-clip-text text-white group-hover:scale-105 transition-transform duration-300"
+            >
+              10+
+            </h3>
+            <p
+              class="text-slate-400 font-medium mt-2 text-sm md:text-base tracking-wide"
+            >
+              Лет опыта
+            </p>
+          </div>
+
+          <div
+            class="group bg-slate-900/40 backdrop-blur-md border border-slate-800/80 p-6 md:p-8 rounded-2xl text-center transition-all duration-300 hover:border-[#F6C90E]/40 hover:shadow-[0_0_25px_rgba(246,201,14,0.1)] hover:-translate-y-1"
+          >
+            <h3
+              class="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#F6C90E] to-amber-400 bg-clip-text text-white group-hover:scale-105 transition-transform duration-300"
+            >
+              250+
+            </h3>
+            <p
+              class="text-slate-400 font-medium mt-2 text-sm md:text-base tracking-wide"
+            >
+              Проектов
+            </p>
+          </div>
+
+          <div
+            class="group bg-slate-900/40 backdrop-blur-md border border-slate-800/80 p-6 md:p-8 rounded-2xl text-center transition-all duration-300 hover:border-[#F6C90E]/40 hover:shadow-[0_0_25px_rgba(246,201,14,0.1)] hover:-translate-y-1"
+          >
+            <h3
+              class="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#F6C90E] to-amber-400 bg-clip-text text-white group-hover:scale-105 transition-transform duration-300"
+            >
+              180+
+            </h3>
+            <p
+              class="text-slate-400 font-medium mt-2 text-sm md:text-base tracking-wide"
+            >
+              Клиентов
+            </p>
+          </div>
+
+          <div
+            class="group bg-slate-900/40 backdrop-blur-md border border-slate-800/80 p-6 md:p-8 rounded-2xl text-center transition-all duration-300 hover:border-[#F6C90E]/40 hover:shadow-[0_0_25px_rgba(246,201,14,0.1)] hover:-translate-y-1"
+          >
+            <h3
+              class="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#F6C90E] to-amber-400 bg-clip-text text-white group-hover:scale-105 transition-transform duration-300"
+            >
+              24/7
+            </h3>
+            <p
+              class="text-slate-400 font-medium mt-2 text-sm md:text-base tracking-wide"
+            >
+              Поддержка
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-16 md:py-24 bg-slate-950 text-white overflow-hidden relative"
+    >
+      <div class="max-w-[1200px] mx-auto px-4 relative z-10">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-4 text-center md:text-left"
+        >
+          <div>
+            <span
+              class="text-blue-500 font-semibold text-sm uppercase tracking-wider block mb-2"
+              >Professional xizmatlar</span
+            >
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">
+              Наши услуги
+            </h2>
+          </div>
+          <p
+            class="text-gray-400 max-w-md mx-auto md:mx-0 text-sm md:text-base"
+          >
+            Качественные электромонтажные работы любой сложности с гарантией
+            безопасности.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
+          <div
+            class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 p-5 md:p-6 rounded-2xl transition-all duration-300 hover:border-blue-500/50 hover:-translate-y-2 flex flex-col justify-between"
+          >
+            <div>
+              <div class="overflow-hidden rounded-xl mb-5 aspect-[4/3]">
+                <img
+                  class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110"
+                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80"
+                  alt="Монтаж проводки"
+                />
+              </div>
+              <h3
+                class="font-bold text-xl md:text-2xl group-hover:text-blue-500 transition-colors"
+              >
+                Монтаж проводки
+              </h3>
+              <p class="text-slate-400 mt-2 text-sm leading-relaxed">
+                Полная установка электропроводки под ключ с соблюдением всех
+                стандартов.
+              </p>
+            </div>
+            <button
+              onclick="openModal('modal-wiring')"
+              class="mt-6 pt-4 border-t border-slate-800/60 flex items-center text-blue-500 font-medium text-sm gap-2 w-full text-left cursor-pointer group/btn"
+            >
+              <span class="group-hover/btn:underline">Подробнее</span>
+              <svg
+                class="h-4 w-4 transform transition-transform group-hover/btn:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 p-5 md:p-6 rounded-2xl transition-all duration-300 hover:border-blue-500/50 hover:-translate-y-2 flex flex-col justify-between"
+          >
+            <div>
+              <div class="overflow-hidden rounded-xl mb-5 aspect-[4/3]">
+                <img
+                  class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110"
+                  src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=600&q=80"
+                  alt="Электрощиты"
+                />
+              </div>
+              <h3
+                class="font-bold text-xl md:text-2xl group-hover:text-blue-500 transition-colors"
+              >
+                Электрощиты
+              </h3>
+              <p class="text-slate-400 mt-2 text-sm leading-relaxed">
+                Сборка, проектирование и профессиональная настройка
+                распределительных систем.
+              </p>
+            </div>
+            <button
+              onclick="openModal('modal-shields')"
+              class="mt-6 pt-4 border-t border-slate-800/60 flex items-center text-blue-500 font-medium text-sm gap-2 w-full text-left cursor-pointer group/btn"
+            >
+              <span class="group-hover/btn:underline">Подробнее</span>
+              <svg
+                class="h-4 w-4 transform transition-transform group-hover/btn:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            class="group bg-slate-900/40 backdrop-blur-md border border-slate-800 p-5 md:p-6 rounded-2xl transition-all duration-300 hover:border-blue-500/50 hover:-translate-y-2 flex flex-col justify-between"
+          >
+            <div>
+              <div class="overflow-hidden rounded-xl mb-5 aspect-[4/3]">
+                <img
+                  class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110"
+                  src="./images/59d1738549f7063b979d30173ebe832ced63b054.png"
+                  alt="Освещение"
+                />
+              </div>
+              <h3
+                class="font-bold text-xl md:text-2xl group-hover:text-blue-500 transition-colors"
+              >
+                Освещение
+              </h3>
+              <p class="text-slate-400 mt-2 text-sm leading-relaxed">
+                Монтаж трекового, декоративного и современного освещения.
+              </p>
+            </div>
+            <button
+              onclick="openModal('modal-lighting')"
+              class="mt-6 pt-4 border-t border-slate-800/60 flex items-center text-blue-500 font-medium text-sm gap-2 w-full text-left cursor-pointer group/btn"
+            >
+              <span class="group-hover/btn:underline">Подробнее</span>
+              <svg
+                class="h-4 w-4 transform transition-transform group-hover/btn:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-[90px]">
+      <div class="max-w-[1200px] h-[500px] mx-auto relative overflow-hidden">
+        <img
+          id="sliderImage"
+          src="./images/fe5a02dac3d1a9e93c11d82cc36fd486e2fe7312.png"
+          class="w-full h-full object-cover rounded-xl transition-all duration-500"
+        />
+
+        <!-- CHAP -->
+        <button
+          onclick="prevImage()"
+          class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full hover:bg-black"
+        >
+          &lt;
+        </button>
+
+        <!-- O‘NG -->
+        <button
+          onclick="nextImage()"
+          class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full hover:bg-black"
+        >
+          &gt;
+        </button>
+      </div>
+
+      <script>
+        const images = [
+          "./images/fe5a02dac3d1a9e93c11d82cc36fd486e2fe7312.png",
+          "./images/59d1738549f7063b979d30173ebe832ced63b054.png",
+          "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0",
+        ];
+
+        let index = 0;
+        const img = document.getElementById("sliderImage");
+
+        function showImage() {
+          img.classList.add("opacity-0");
+
+          setTimeout(() => {
+            img.src = images[index];
+            img.classList.remove("opacity-0");
+          }, 200);
+        }
+
+        function nextImage() {
+          index = (index + 1) % images.length;
+          showImage();
+        }
+
+        function prevImage() {
+          index = (index - 1 + images.length) % images.length;
+          showImage();
+        }
+
+        // AUTO SLIDER (DOIM AYLANTIRADI)
+        setInterval(() => {
+          nextImage();
+        }, 3000); // har 3 sekundda almashadi
+      </script>
+    </section>
+
+    <section
+      class="py-16 md:py-24 bg-slate-950 text-white relative overflow-hidden"
+    >
+      <div class="max-w-[600px] mx-auto px-4 relative z-10">
+        <div class="text-center mb-[30px]">
+          <span
+            class="text-[#F6C90E] font-semibold text-sm uppercase tracking-wider block mb-2"
+            >Есть вопросы?</span
+          >
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
+            Связаться с нами
+          </h2>
+        </div>
+
+        <form
+          id="contactForm"
+          onsubmit="validateForm(event)"
+          class="grid gap-5 bg-slate-900/50 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-slate-800/80 shadow-xl"
+        >
+          <input
+            type="text"
+            id="formName"
+            class="w-full p-4 bg-slate-950/60 border border-slate-800 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#F6C90E] transition-all"
+            placeholder="Имя"
+            required
+          />
+          <input
+            type="tel"
+            id="formPhone"
+            class="w-full p-4 bg-slate-950/60 border border-slate-800 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#F6C90E] transition-all"
+            placeholder="Телефон"
+            required
+          />
+          <textarea
+            id="formMessage"
+            class="w-full p-4 bg-slate-950/60 border border-slate-800 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#F6C90E] transition-all h-32 resize-none"
+            placeholder="Сообщение"
+          ></textarea>
+          <div
+            id="formStatus"
+            class="hidden text-center font-medium p-3 rounded-xl text-sm transition-all"
+          ></div>
+
+          <button
+            type="submit"
+            class="w-full bg-[#F6C90E] text-black font-bold py-4 rounded-xl transition-all hover:bg-[#e2b80c] active:scale-[0.98] flex items-center justify-center gap-2 group"
+          >
+            <span>Отправить</span>
+            <svg
+              class="h-5 w-5 transform transition-transform group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <div
+      id="modal-wiring"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-all duration-300"
+    >
+      <div
+        class="bg-slate-900 border border-slate-800 max-w-lg w-full rounded-2xl p-6 relative text-white"
+      >
+        <button
+          onclick="closeModal('modal-wiring')"
+          class="absolute top-4 right-4 text-gray-400 hover:text-white"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <h3 class="text-2xl font-bold mb-4 text-[#F6C90E]">Монтаж проводки</h3>
+        <p class="text-gray-300 mb-6 leading-relaxed">
+          Полный комплекс работ по прокладке кабеля в квартирах, домах и
+          коммерческих помещениях с гарантией качества.
+        </p>
+        <button
+          onclick="closeModal('modal-wiring')"
+          class="w-full bg-[#F6C90E] text-black font-medium py-2.5 rounded-xl"
+        >
+          Закрыть
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="modal-shields"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-all duration-300"
+    >
+      <div
+        class="bg-slate-900 border border-slate-800 max-w-lg w-full rounded-2xl p-6 relative text-white"
+      >
+        <button
+          onclick="closeModal('modal-shields')"
+          class="absolute top-4 right-4 text-gray-400 hover:text-white"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <h3 class="text-2xl font-bold mb-4 text-[#F6C90E]">Электрощиты</h3>
+        <p class="text-gray-300 mb-6 leading-relaxed">
+          Проектирование, сборка va распределительных щитов любой сложности по
+          современным стандартам безопасности.
+        </p>
+        <button
+          onclick="closeModal('modal-shields')"
+          class="w-full bg-[#F6C90E] text-black font-medium py-2.5 rounded-xl"
+        >
+          Закрыть
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="modal-lighting"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-all duration-300"
+    >
+      <div
+        class="bg-slate-900 border border-slate-800 max-w-lg w-full rounded-2xl p-6 relative text-white"
+      >
+        <button
+          onclick="closeModal('modal-lighting')"
+          class="absolute top-4 right-4 text-gray-400 hover:text-white"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <h3 class="text-2xl font-bold mb-4 text-[#F6C90E]">Освещение</h3>
+        <p class="text-gray-300 mb-6 leading-relaxed">
+          Установка и настройка современных систем освещения, трековых
+          светильников и светодиодных лент.
+        </p>
+        <button
+          onclick="closeModal('modal-lighting')"
+          class="w-full bg-[#F6C90E] text-black font-medium py-2.5 rounded-xl"
+        >
+          Закрыть
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Asosiy Modal (Ma'lumot yuborish) scripti
+      const openBtn = document.getElementById("openInputModal");
+      const closeBtnX = document.getElementById("closeModalX");
+      const closeBtnCancel = document.getElementById("closeInputModal");
+      const modal = document.getElementById("inputModal");
+
+      function toggleInputModal(show) {
+        if (show) {
+          modal.classList.remove("hidden");
+        } else {
+          modal.classList.add("hidden");
+        }
+      }
+
+      openBtn.addEventListener("click", () => toggleInputModal(true));
+      closeBtnX.addEventListener("click", () => toggleInputModal(false));
+      closeBtnCancel.addEventListener("click", () => toggleInputModal(false));
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) toggleInputModal(false);
+      });
+
+      // Xizmatlar pop-up modallari uchun funksiyalar
+      function openModal(id) {
+        const el = document.getElementById(id);
+        el.classList.remove("hidden");
+        setTimeout(() => {
+          el.classList.remove("opacity-0");
+        }, 10);
+      }
+
+      function closeModal(id) {
+        const el = document.getElementById(id);
+        el.classList.add("opacity-0");
+        setTimeout(() => {
+          el.classList.add("hidden");
+        }, 300);
+      }
+
+      // Formani yuborish validatsiyasi (Oddiy namuna)
+      function validateForm(event) {
+        event.preventDefault();
+        const status = document.getElementById("formStatus");
+        status.classList.remove("hidden");
+        status.className =
+          "text-center font-medium p-3 rounded-xl text-sm bg-green-500/20 text-green-400 mt-2";
+        status.innerText = "Спасибо! Ваша заявка успешно отправлена.";
+        document.getElementById("contactForm").reset();
+      }
+    </script>
+    <script>
+      (() => {
+        function initResponsiveMenu() {
+          const burgerBtn = document.getElementById("burgerBtn");
+          const closeMenuBtn = document.getElementById("closeMenuBtn");
+          const mobileMenu = document.getElementById("mobileMenu");
+
+          if (!burgerBtn || !closeMenuBtn || !mobileMenu) return;
+
+          const hiddenClasses = [
+            "hidden",
+            "invisible",
+            "opacity-0",
+            "pointer-events-none",
+            "scale-95",
+          ];
+          const shownClasses = [
+            "flex",
+            "opacity-100",
+            "pointer-events-auto",
+            "scale-100",
+          ];
+
+          function openMenu() {
+            mobileMenu.classList.remove(...hiddenClasses);
+            mobileMenu.classList.add(...shownClasses);
+            burgerBtn.setAttribute("aria-expanded", "true");
+            document.body.style.overflow = "hidden";
+          }
+
+          function closeMenu() {
+            mobileMenu.classList.remove(...shownClasses);
+            mobileMenu.classList.add(
+              "invisible",
+              "opacity-0",
+              "pointer-events-none",
+            );
+            burgerBtn.setAttribute("aria-expanded", "false");
+            document.body.style.overflow = "";
+          }
+
+          burgerBtn.setAttribute("aria-controls", "mobileMenu");
+          burgerBtn.setAttribute("aria-expanded", "false");
+          burgerBtn.addEventListener("click", openMenu);
+          closeMenuBtn.addEventListener("click", closeMenu);
+
+          mobileMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", closeMenu);
+          });
+
+          mobileMenu.addEventListener("click", (event) => {
+            if (event.target === mobileMenu) closeMenu();
+          });
+
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeMenu();
+          });
+
+          window.addEventListener("resize", () => {
+            if (window.innerWidth >= 1024) closeMenu();
+          });
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initResponsiveMenu);
+        } else {
+          initResponsiveMenu();
+        }
+      })();
+    </script>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+</html>
